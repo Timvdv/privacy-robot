@@ -3,14 +3,26 @@
 <head>
   <meta name="viewport" content="initial-scale=1"/>
   <title>face-detection-node-opencv</title>
-  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div class="container center">
-    <canvas id="canvas-video" width="640" height="480"></canvas>
-  </div>
+    <h1 class="help-text">Move your head from the left side of the screen to the right</h1>
+    <div class="container center">
+        <canvas id="canvas-video" width="640" height="480"></canvas>
+    </div>
+
+    <!-- Due to copyrights I did not commit this to Github
+        <h1>
+            Turn on creepy sound effect
+        </h1>
+        <audio autoplay>
+            <source src="assets/watchdogs_sound_fx.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    -->
 
   <script src="/socket.io/socket.io.js"></script>
+  <script src="/text.js"></script>
   <script src="/app.js"></script>
 </body>
 </html>

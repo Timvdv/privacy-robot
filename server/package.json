@@ -1,13 +1,16 @@
 {
-  "name": "edi-cam",
+  "name": "privacy-call-to-action",
   "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon --debug ./server.js"
   },
   "dependencies": {
     "express": "4.10.1",
     "morgan": "1.4.1",
     "opencv": "git+https://github.com/peterbraden/node-opencv.git",
     "socket.io": "1.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

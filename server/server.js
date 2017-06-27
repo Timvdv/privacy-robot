@@ -13,7 +13,7 @@ app.use(express.static(configServer.staticFolder));
 app.use(morgan('dev'));
 
 // serve index
-require('./lib/routes').serveIndex(app, configServer.staticFolder);
+require('./lib/app').serveIndex(app, configServer.staticFolder);
 
 // HTTP server
 var server = http.createServer(app);
@@ -23,6 +23,23 @@ server.listen(app.get('port'), function () {
 
 // WebSocket server
 var io = require('socket.io')(server);
-io.on('connection', require('./lib/routes/socket'));
+
+var socketlist = [];
+
+io.on('connection', function(socket) {
+
+    //Destroy all sockets
+    socketlist.forEach(function(deleteSocket) {
+        deleteSocket.disconnect();
+    });
+
+    socketlist = [];
+
+    socketlist.push(socket);
+
+    if(!socket.disconnected) {
+        require('./lib/app/socket')(socketlist[0]);
+    }
+});
 
 module.exports.app = app;
